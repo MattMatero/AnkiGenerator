@@ -1,5 +1,5 @@
 from jisho_api.word import Word
-from data_handler import open_file
+from data_handler import open_file, save_df
 
 def query_word(word):
     r = Word.request(word)
@@ -45,4 +45,5 @@ if __name__ == '__main__':
 
     df = open_file('./data/words.csv')
     word_lookups = process_word_list(df)
-    save_word_csv(word_lookups, ['word', 'reading', 'english_def', 'pos'])
+    lookup_df = pd.DataFrame(word_lookups, columns=['word', 'reading', 'english_def', 'pos'])
+    save_df(lookup_df, './data/queried_words.csv')
