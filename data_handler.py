@@ -32,7 +32,7 @@ def insert(df, list_data):
     pd.DataFrame.from_dict({'words'})
 
 def save_df(df, output_path):
-    df.to_csv(output_path)
+    df.to_csv(output_path, index=False)
     return df
 
 

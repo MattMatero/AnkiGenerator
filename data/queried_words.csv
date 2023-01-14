@@ -1,0 +1,14 @@
+word,reading,english_def,pos,other forms
+奪う,うばう,"['to snatch away', 'to dispossess', 'to steal']","['Godan verb with u ending', 'Transitive verb']",[]
+預かる,あずかる,"['to look after', 'to take care of', 'to keep', 'to hold on to', 'to keep in custody']","['Godan verb with ru ending', 'Transitive verb']",[]
+預かる,あずかる,"['to be put in charge of', 'to be given responsibility for', 'to be entrusted with']","['Godan verb with ru ending', 'Transitive verb']",[]
+掛ける,かける,"['to hang up (e.g. a coat, a picture on the wall)', 'to let hang', 'to suspend (from)', 'to hoist (e.g. sail)', 'to raise (e.g. flag)']","['Ichidan verb', 'Transitive verb']",['懸ける']
+掛ける,かける,"['to put on (e.g. a blanket)', 'to put on top of', 'to cover', 'to lay', 'to spread']","['Ichidan verb', 'Transitive verb']",['懸ける']
+掛ける,かける,"['to put on (glasses, etc.)', 'to wear (a necklace, etc.)']","['Ichidan verb', 'Transitive verb']",['懸ける']
+欠ける,かける,"['to chip', 'to be chipped', 'to break (off)', 'to be damaged']","['Ichidan verb', 'Intransitive verb']","['缺ける', '闕ける']"
+欠ける,かける,"['to be missing (from a set, team, etc.)', 'to be absent', 'to become lost']","['Ichidan verb', 'Intransitive verb']","['缺ける', '闕ける']"
+欠く,かく,"['to chip', 'to nick', 'to break', 'to crack']","['Godan verb with ku ending', 'Transitive verb']",['闕く']
+一緒に,いっしょに,"['together (with)', 'at the same time', 'in a lump']",['Adverb (fukushi)'],[]
+依頼,いらい,"['request', 'commission', 'entrusting (with a matter)']","['Noun', 'Suru verb', 'Transitive verb']",[]
+裁判,さいばん,"['trial', 'judgement', 'judgment']","['Noun', 'Suru verb', 'Transitive verb', ""Noun which may take the genitive case particle 'no'""]",[]
+裁判所,さいばんしょ,"['court', 'courthouse']",['Noun'],[]
