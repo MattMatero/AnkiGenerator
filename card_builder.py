@@ -1,8 +1,6 @@
 from jisho_api.word import Word
 from data_handler import open_file
 
-
-
 def query_word(word):
     r = Word.request(word)
     data = r.data[0]
