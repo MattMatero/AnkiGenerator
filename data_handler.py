@@ -10,5 +10,5 @@ def open_file(file_loc, columns=None):
     return df
 
 def save_df(df, output_path):
-    df.to_csv(output_path)
+    df.to_csv(output_path, index=False)
     return df
