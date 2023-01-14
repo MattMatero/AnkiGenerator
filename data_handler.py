@@ -18,8 +18,24 @@ def validate_default_csv():
             print(files[file])
             if len(df.columns) != len(files[file]) or not (df.columns == files[file]).all():
                 raise Exception(f"Columns mismatch for {file}.csv")
-        
-            
+
+def add_deck(deck_name, deck_uuid):
+
+    deck_df = open_file(f"./data/decks.csv")
+
+    if deck_name in deck_df["name"].unique():
+        raise Exception(f"Deck name ({deck_name}) already exists!")
+
+    #deck_uuid = generate_uuid(deck_df)
+
+    #dont do this yet
+    #card_df.loc[:, 'deck_id'] = deck_uuid
+    
+    insert(deck_df,[deck_uuid,deck_name])
+
+    #save_df(card_df, "./data/cards.csv")
+    save_df(deck_df, "./data/decks.csv")
+
 
 def generate_uuid(df):
 
@@ -48,14 +64,16 @@ def open_file(file_loc, columns=None):
 
     return df
 
-def insert(df, list_data):
+def insert(df, list_data, uuid=None):
     
-    new_uuid = generate_uuid(df)
+    if not uuid:
 
-    if new_uuid is None:
-        raise Exception("Failed to generate unique UUID")
+        new_uuid = generate_uuid(df)
 
-    list_data.insert(0,new_uuid)
+        if new_uuid is None:
+            raise Exception("Failed to generate unique UUID")
+
+        list_data.insert(0,new_uuid)
 
     df.loc[len(df)] = list_data
 
