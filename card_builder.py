@@ -33,11 +33,6 @@ def process_word_list(df):
 
     return word_list
 
-def save_word_csv(words, columns):
-
-    df = pd.DataFrame(words, columns=columns)
-    df.to_csv('./outputs/queried_words.csv')
-    return df
 
 if __name__ == '__main__':
 
