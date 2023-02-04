@@ -36,6 +36,7 @@ def query_word(word):
 
 def process_word_list(df):
     
+    #print(df)
     word_list = []
     for word in df['words'].to_numpy():
         word_list.extend(query_word(word))
@@ -43,11 +44,21 @@ def process_word_list(df):
     return word_list
 
 
-if __name__ == '__main__':
+def generate_queried_words(in_csv, out_csv):
 
     print("Processing word list...")
 
-    df = open_file('./data/words.csv')
+    if (not in_csv.endswith(".csv")):
+        in_csv = in_csv + ".csv"
+
+
+    print(in_csv)
+    df = open_file(f'./data/{in_csv}')
+    print(df)
     word_lookups = process_word_list(df)
     lookup_df = pd.DataFrame(word_lookups, columns=['word', 'reading', 'english_def', 'pos', 'other forms'])
-    save_df(lookup_df, './data/queried_words.csv')
+    save_df(lookup_df, f'./data/queried_words_{out_csv}.csv')
+
+if __name__ == "__main__":
+
+    generate_queried_words()

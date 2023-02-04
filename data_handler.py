@@ -31,11 +31,20 @@ def add_deck(deck_name, deck_uuid):
     #dont do this yet
     #card_df.loc[:, 'deck_id'] = deck_uuid
     
-    insert(deck_df,[deck_uuid,deck_name])
+    insert(deck_df,[deck_uuid,deck_name], uuid=deck_uuid)
 
     #save_df(card_df, "./data/cards.csv")
     save_df(deck_df, "./data/decks.csv")
 
+def get_cards(csv_name):
+    return open_file(f"./data/queried_words_{csv_name}.csv")
+
+def generate_uuid_type(type):
+    if type == "Deck":
+        return generate_uuid(open_file("./data/decks.csv"))
+    
+    else:
+        sys_exit(0)
 
 def generate_uuid(df):
 
@@ -43,7 +52,7 @@ def generate_uuid(df):
 
     while iters > 0:
 
-        new_uuid = uuid.uuid4()
+        new_uuid = uuid.uuid4().int & (1<<32)-1
 
         if len(df.index) == 0 or new_uuid not in df["uuid"]:
             return new_uuid
@@ -57,6 +66,7 @@ def open_template_file(file_path):
         return f.read()
 
 def open_file(file_loc, columns=None):
+    print(file_loc)
     if path.exists(file_loc):
         df = pd.read_csv(file_loc)
     else:
@@ -74,6 +84,9 @@ def insert(df, list_data, uuid=None):
             raise Exception("Failed to generate unique UUID")
 
         list_data.insert(0,new_uuid)
+
+    #print(df)
+    #print(list_data)
 
     df.loc[len(df)] = list_data
 
